@@ -8,14 +8,12 @@ import Notification from './components/Notification/Notification';
 import css from './App.module.css';
 
 const App = () => {
-  // Крок 3: Ініціалізація стану
   const [votes, setVotes] = useState<Votes>({
     good: 0,
     neutral: 0,
     bad: 0,
   });
 
-  // Крок 3: Функція для оновлення стану
   const handleVote = (type: VoteType) => {
     setVotes(prevVotes => ({
       ...prevVotes,
@@ -23,12 +21,10 @@ const App = () => {
     }));
   };
   
-  // Крок 3: Функція для скидання стану
   const resetVotes = () => {
     setVotes({ good: 0, neutral: 0, bad: 0 });
   };
 
-  // Крок 6: Обчислення статистики
   const totalVotes = votes.good + votes.neutral + votes.bad;
 
   const positiveRate = totalVotes
@@ -41,7 +37,7 @@ const App = () => {
       <VoteOptions 
         onVote={handleVote} 
         onReset={resetVotes} 
-        canReset={totalVotes > 0} // Крок 8: Умовний рендеринг Reset
+        canReset={totalVotes > 0}
       />
        {totalVotes > 0 ? (
         <VoteStats 

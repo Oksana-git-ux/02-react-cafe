@@ -1,7 +1,6 @@
 import { Votes } from '../../types/votes';
 import css from './VoteStats.module.css';
 
-// Оголошення інтерфейсу для пропсів
 interface VoteStatsProps {
   votes: Votes;
   totalVotes: number;
